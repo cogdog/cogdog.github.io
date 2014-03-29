@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- 
+
+a CogDog Production because I love to give attribution for flickr photos and they
+suck at making it easy.
+
+To make this work, you will need to:
+
+* get a flickr API key (anyone with a flickr account can do this) https://www.flickr.com/services/apps/create/apply
+* edit the line below where dat goes
+* put this file somewherez on a web server where you can get its URL
+* create a javascript bookmark that references said URL
+* BOOM! Go attribute
+
+-->
+
+
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Flickr CC Attribution Helper Maker</title>
+    <style>
+		body {margin:0; padding:0; font-family:Helvetica,Arial,san-serif;}
+		#content {margin: 20px auto; width: 80%;}
+		label, input, textarea {display:block;}
+		label {margin-top:1em;}
+		input, textarea {width: 500px;}
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+    	// SETUP
+        // size for image used in HTML '_m'=240px, ''=500px, '_c'=800px, '_b' = 1024px
+		var ps = '';
+		
+		// default URL for hosted tool
+		var fu = 'http://yourown.domain.com/flickr-cc-helper.html';
+
+		$(document).ready(function(){	
+		
+			// set default value of form fields
+			$('#furl').val(fu);	
+			$('#isize').val(ps);
+			
+			// call function to set value of text area and bookmarklet link
+			makebookmarklet();
+			
+						
+			
+			$('#furl').change(function() {
+				 makebookmarklet()
+			});
+			
+			$('#isize').change(function() {
+				 makebookmarklet()
+			});
+			
+			
+			// this function will update the bookmarklet based on the value of the image size and url field values
+			function makebookmarklet() {			
+	
+				if ( $('#isize').val() != '') {
+					sizestr = "+'&s=" + $('#isize').val() + "'";
+				} else {
+					sizestr = '';
+				}
+				
+				str = "javascript:fu=document.URL.split(\"/\")[5];helperURL='" + $('#furl').val() + "';fw=window.open(helperURL+'?flickd='+fu" + sizestr +", 'cc-helper', 'resizable=0,scrollbars=0,width=560,height=360'); setTimeout(function(){fw.focus();},1000);";
+				$('#marklet').val(str);
+				
+				$("a#mlink").attr('href', str);
+			}
+
+		});
+    </script>
+   
+  </head>
+  <body>
+	  <div id="wrapper">
+	  	<div id="content">
+	  	<h1 id="title">Flickr CC Attribution Helper Bookmarklet Maker</h1>
+	  	<form>
+	  	<label for="isize">Size for Blog Image</label>
+	  	<select id="isize">
+	  		<option value="_m">240px</option>
+	  		<option value="">500px</option>
+	  		<option value="_z">620px</option>
+	  		<option value="_c">800px</option>
+	  		<option value="_b">1024px</option>
+	  	</select>
+	  	
+	  	<label for="furl">URL for Attribution Helper Script</label>
+	  	<input type="text" id="furl" />
+	  	
+	  	<label for="furl">Bookmarklet Code</label><br />Drag link for <a href="#" id="mlink">flickr cc attribution helper</a> to your browser bar.
+	  	<textarea id="marklet" rows="5"></textarea>
+	  	</form>
+	  	</div>
+  </div>
+  </body>
+</html>
