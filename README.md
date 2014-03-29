@@ -1,4 +1,4 @@
-cogdog.github.io
+Git Some CogDog
 ================
 
-Hoist Some Stuff
+Gonna bark up some sites here....
