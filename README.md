@@ -1,4 +1,4 @@
 Git Some CogDog
 ================
 
-Gonna bark up some sites here....
+Because http://cogdog.github.io should be pretty
