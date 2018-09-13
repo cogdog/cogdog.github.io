@@ -702,7 +702,8 @@
 
 	#main {
 		position: relative;
-		max-width: 100%;
+		width: 80%;
+		max-width: 900px
 		min-width: 27em;
 		padding: 4.5em 3em 3em 3em ;
 		background: #ffffff;
