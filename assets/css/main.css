@@ -120,8 +120,9 @@
 		}
 
 		body.is-loading:after {
-			opacity: 1;
-		}
+			opacity:1.0;
+		}	
+		
 
 /* Type */
 
@@ -709,7 +710,7 @@
 		background: #ffffff;
 		border-radius: 4px;
 		cursor: default;
-		opacity: 0.95;
+		opacity: 0.85;
 		text-align: center;
 		-moz-transform-origin: 50% 50%;
 		-webkit-transform-origin: 50% 50%;
@@ -772,6 +773,7 @@
 			-ms-transform: rotateX(15deg);
 			transform: rotateX(15deg);
 		}
+
 
 /* Footer */
 
